@@ -1,1 +1,1 @@
-export { mainPageComponent } from "./PortfolioPageComponent";
+export { PortfolioPageComponent } from "./PortfolioPageComponent";
