@@ -1,27 +1,22 @@
-// pages/_app.js
-import { ChakraProvider } from "@chakra-ui/react";
+import type { EmotionCache } from "@emotion/react";
+import { CacheProvider } from "@emotion/react";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import type { AppProps } from "next/app";
+import { NextPage } from "next";
+import { ReactElement, ReactNode } from "react";
 
-// 1. Import the extendTheme function
-import { extendTheme } from "@chakra-ui/react";
-
-// 2. Extend the theme to include custom colors, fonts, etc
-const colors = {
-  brand: {
-    900: "#1a365d",
-    800: "#153e75",
-    700: "#2a69ac",
-  },
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
 };
 
-const theme = extendTheme({ colors });
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+  emotionCache?: EmotionCache;
+};
 
-// 3. Pass the `theme` prop to the `ChakraProvider`
-function MyApp({ Component, pageProps }) {
-  return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
-  );
-}
+const App = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? ((page) => page);
+  return <div>{getLayout(<Component {...pageProps} />)}</div>;
+};
 
-export default MyApp;
+export default App;
