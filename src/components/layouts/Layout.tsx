@@ -1,16 +1,21 @@
-import type { ReactElement } from "react";
+import { Card, Text, Link } from "@nextui-org/react";
 
 import { Header } from "./Header";
 
-type LayoutProps = Required<{
-  readonly children: ReactElement;
-}>;
-
-export const Layout = ({ children }: LayoutProps) => {
+/**
+ * @package
+ */
+export const getLayout = (page: React.ReactElement) => {
   return (
-    <div>
+    <Card
+      css={{
+        display: "grid",
+        gridTemplateRows: "auto 1fr auto",
+        gridTemplateColumns: "100%",
+        minHeight: "100vh",
+      }}>
       <Header />
-      <main>{children}</main>
-    </div>
+      <main>{page}</main>
+    </Card>
   );
 };
