@@ -1,9 +1,23 @@
-import { Box, Card } from "@mui/material";
+import { Avatar, Box, Card, CardHeader, IconButton } from "@mui/material";
+import { red } from "@nextui-org/react";
 import Spline from "@splinetool/react-spline";
 
 const links = [
-  "https://prod.spline.design/2KYzpJ1RhNmS-5yF/scene.splinecode",
-  "https://prod.spline.design/2KYzpJ1RhNmS-5yF/scene.splinecode",
+  {
+    url: "https://prod.spline.design/2KYzpJ1RhNmS-5yF/scene.splinecode",
+    title: "Birthday Cake 2023",
+    date: "2023/2/18",
+  },
+  {
+    url: "https://prod.spline.design/0ttOeDTY42NLheoh/scene.splinecode",
+    title: "晩飯@東京厨房千駄ヶ谷",
+    date: "2022/11/24",
+  },
+  {
+    url: "https://prod.spline.design/Y2w634IXpcVYm059/scene.splinecode",
+    title: "晩飯@ガスト西新宿店",
+    date: "2022/10/6",
+  },
 ];
 
 export const PortfolioPageComponent = () => {
@@ -21,23 +35,30 @@ export const PortfolioPageComponent = () => {
         mx: "auto",
       }}>
       {links.map((val) => {
-        return <CardUI url={val} />;
+        return <CardUI url={val.url} title={val.title} date={val.date} />;
       })}
     </Box>
   );
 };
 
-const CardUI = ({ url }: { url: string }) => {
+type props = {
+  url: string;
+  title: string;
+  date: string;
+};
+
+const CardUI = ({ url, title, date }: props) => {
   return (
     <Card
       sx={{
-        height: "300px",
+        height: "400px",
         bgcolor: "background.dark",
         display: "flex",
         flexDirection: "column",
         borderRadius: "10px",
       }}>
-      <Spline scene={url}/>
+      <CardHeader title={title} subheader={date} />
+      <Spline scene={url} />
     </Card>
   );
 };

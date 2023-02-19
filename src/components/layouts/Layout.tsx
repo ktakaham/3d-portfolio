@@ -1,4 +1,4 @@
-import { Card, Text, Link } from "@nextui-org/react";
+import { Card } from "@nextui-org/react";
 
 import { Header } from "./Header";
 
