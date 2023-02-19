@@ -9,11 +9,6 @@ const links = [
     date: "2023/02/19",
   },
   {
-    url: "https://prod.spline.design/FuVrfouZlXLGN62I/scene.splinecode",
-    title: "原宿駅前のロードバイク",
-    date: "2023/02/19",
-  },
-  {
     url: "https://prod.spline.design/2KYzpJ1RhNmS-5yF/scene.splinecode",
     title: "Birthday Cake 2023",
     date: "2023/2/18",
