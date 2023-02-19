@@ -14,6 +14,11 @@ const links = [
     date: "2022/11/24",
   },
   {
+    url: "https://prod.spline.design/ETiWmTnX9IVPsTUB/scene.splinecode",
+    title: "タコパ",
+    date: "2022/11/19",
+  },
+  {
     url: "https://prod.spline.design/Y2w634IXpcVYm059/scene.splinecode",
     title: "晩飯@ガスト西新宿店",
     date: "2022/10/6",
